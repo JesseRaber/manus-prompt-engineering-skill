@@ -58,3 +58,9 @@ If a broad capture is explicitly authorized and unavoidable:
 6. delete it only when deletion is authorized and safe.
 
 Accidental overlays or stale tabs exposing unrelated content are incidents. Do not expand or explore them.
+
+## Read-only diagnostic artifacts
+
+Do not create external scratch findings, saved authenticated HTML, whole-page captures, or downloaded raw responses merely because they are outside the repository. Read-only diagnosis should default to a zero-artifact budget unless the prompt explicitly authorizes a narrowly defined artifact and lifecycle.
+
+If an artifact is authorized, record its exact path, purpose, content projection, sensitivity, creation time, and retained/deleted disposition. A clean Git workspace does not prove that no external artifact was created.

@@ -21,6 +21,10 @@ severity | approximate timestamp/part | observed action/state | authorization/ev
 
 time | conclusion | evidence then available | retained/retracted/corrected
 
+## Controlled reproduction ledger
+
+observation | UTC | context isolation | viewport/selector | visible state | page-issued request | direct probes
+
 ## Irreversible-attempt ledger
 
 attempt | task/time/actor | target/interface | acknowledgement | post-readback | mutation allowance consumed
@@ -35,6 +39,7 @@ attempt | task/time/actor | target/interface | acknowledgement | post-readback |
 - Schedules/control-plane objects:
 - Production data:
 - Artifacts/exposures:
+- Fresh-context and external-artifact status:
 - Incidents/deviations:
 
 ## Two-axis classification

@@ -44,6 +44,10 @@ Attribute each irreversible attempt to a task/time/actor. State whether a prior-
 
 List and explicitly retract any material conclusion contradicted by later evidence. A final answer must not silently replace an early confident success statement with the opposite classification.
 
+For production diagnosis, compare the final classification to the controlled observation ledger. A visibly rendered target cannot remain classified as missing without a later timestamped regression. Keep page-issued Network evidence separate from manual endpoint probes.
+
+Do not classify an incident as `transient` merely because it was not reproduced. Require evidence that the earlier failure actually occurred; otherwise report current-path health, possible prior observation error, or a taxonomy gap.
+
 ## Final platform state
 
 Use a fresh post-action readback. If only pre-action evidence exists, say `last confirmed before [event]`; do not claim the state remained current.
