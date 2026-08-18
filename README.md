@@ -22,19 +22,26 @@ Protocol files:
 
 - `protocol/MANUS_EXECUTION_PROTOCOL.md` — canonical Version 1 semantics and failure behavior
 - `protocol/PROTOCOL_SCHEMA.md` — required fields and controlled vocabulary
-- `templates/MANUS_EXECUTION_PROTOCOL_V1.md` — authoring template
+- `protocol/ENVELOPE_TEMPLATE.md` — authoring template
+- `protocol/EXAMPLES.md` — pilot fixtures and conflict cases
 - `authoring-protocol/SKILL.md` — GPT/Claude-side companion for emitting compliant envelopes
 - `manus-execution/SKILL.md` — Manus-side companion for parsing and enforcing envelopes
 
 ### Recommended pilot installation
 
-For GPT/Claude prompt authoring, install/use the existing `manus-prompt-engineering` skill together with `authoring-protocol/SKILL.md`.
+For GPT/Claude prompt authoring, use the existing `manus-prompt-engineering` skill together with `authoring-protocol/SKILL.md` and the `protocol/` references.
 
-For Manus execution, install/use `manus-execution/SKILL.md` together with the `protocol/` reference files.
+For Manus execution, use `manus-execution/SKILL.md` together with the `protocol/` reference files.
 
 During the pilot, ordinary prompts without an MEP envelope remain valid; the Manus execution companion must not reject non-protocol prompts merely because the envelope is absent.
 
 Do not treat Protocol V1 as cryptographically signed. If verifiable provenance is ever added, it should be a later, separate feature and must not replace current-prompt authorization checks.
+
+### Packaging compatibility
+
+The existing `scripts/build_claude_skill.ps1` continues to build and validate the original root `manus-prompt-engineering` package from `SKILL.md`, `references/`, `templates/`, and `examples/`.
+
+The Protocol V1 pilot files intentionally live outside those validated content roots so the existing Claude package remains unchanged while the protocol is tested. The authoring and Manus executor companions should be installed/exposed separately during the pilot. A dedicated companion-package builder can be added after the protocol behavior is validated in real Manus runs.
 
 ## Package contents
 
@@ -43,6 +50,8 @@ Do not treat Protocol V1 as cryptographically signed. If verifiable provenance i
 - `manus-execution/SKILL.md` — companion Manus-side MEP V1 executor
 - `protocol/MANUS_EXECUTION_PROTOCOL.md` — canonical MEP V1 specification
 - `protocol/PROTOCOL_SCHEMA.md` — MEP V1 schema and controlled vocabulary
+- `protocol/ENVELOPE_TEMPLATE.md` — MEP V1 envelope authoring template
+- `protocol/EXAMPLES.md` — MEP V1 pilot fixtures
 - `references/READ_ONLY_WORKSPACE_INTEGRITY.md` — prevents hidden local writes during read-only work
 - `references/EVIDENCE_AND_CAPABILITY_STATUS.md` — evidence hierarchy and layered status semantics
 - `references/RUNTIME_PROVENANCE_AND_PREVIEW_FIDELITY.md` — distinguishes source, runtime, build, checkpoint, and deployment evidence
@@ -65,7 +74,6 @@ Do not treat Protocol V1 as cryptographically signed. If verifiable provenance i
 - `references/PRODUCTION_DIAGNOSIS_AND_REPRODUCTION.md` — controlled UI reproduction, page-request correlation, causal branch gates, artifact limits, and diagnosis taxonomy
 - `references/CABINET_PRICE_ANALYZER_PROFILE.md` — project-specific release defaults loaded only for Cabinet Price Analyzer work
 - `templates/ENGINEERING_TASK_PROMPT.md` — general-purpose template
-- `templates/MANUS_EXECUTION_PROTOCOL_V1.md` — protocol envelope template for substantial Manus tasks
 - `templates/READ_ONLY_CAPABILITY_ASSESSMENT.md` — security/platform capability template
 - `templates/DOCUMENTATION_RECONCILIATION.md` — documentation-only reconciliation template
 - `templates/READ_ONLY_PREVIEW_VALIDATION.md` — preview/rollback/runtime template
@@ -80,12 +88,12 @@ Do not treat Protocol V1 as cryptographically signed. If verifiable provenance i
 
 Install/copy the entire `manus-prompt-engineering` directory into the skill directory used by the target agent environment. The callable entrypoint is `SKILL.md`.
 
-For Protocol V1 pilots, also expose the authoring or executor companion entrypoint appropriate to the target model as described above.
+For Protocol V1 pilots, additionally expose the authoring or executor companion entrypoint appropriate to the target model as described above.
 
-To build the Claude.ai upload archive without GitHub's branch suffix, run:
+To build the existing Claude.ai upload archive without GitHub's branch suffix, run:
 
 ```powershell
 ./scripts/build_claude_skill.ps1 -OutputPath /path/to/manus-prompt-engineering.zip
 ```
 
-The command validates the Claude.ai description limit, the 500-line entrypoint guidance, all resource links, transitive reachability, and the ZIP's single `manus-prompt-engineering/` root.
+The command validates the Claude.ai description limit, the 500-line entrypoint guidance, all original resource links, transitive reachability, and the ZIP's single `manus-prompt-engineering/` root.
