@@ -66,6 +66,7 @@ Prohibited inference:
 
 This is particularly useful for production incidents and security assessments.
 
+For a complete worked classification, use `examples/CAPABILITY_ASSESSMENT_STATUS_EXAMPLE.md`.
 
 ## Operational control surface semantics
 
