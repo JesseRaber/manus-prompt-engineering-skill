@@ -407,7 +407,7 @@ Claims such as `no invocation occurred` and `no other task changed` require befo
 
 Keep direct state (`enabled=false`) separate from scheduling semantics (`will not trigger`) unless the latter is documented/proven.
 
-See `references/CONTROLLED_PLATFORM_MUTATION.md`.
+See `references/CONTROLLED_PLATFORM_MUTATION.md`. For rollback/restore identity reconciliation, do not equate a Live marker, operator-authored description, or SHA-like ID with serving-content lineage; attribute attempts across tasks and use `references/ROLLBACK_ARTIFACT_IDENTITY.md`.
 
 ## Operational capability closure
 

@@ -6,7 +6,7 @@ This package incorporates lessons from multiple recorded Manus executions, inclu
 
 It also includes fail-closed irreversible-action gates, prompt-render integrity checks, command-status validation, post-merge recovery topology, full execution-surface minimization, and mechanical final reconciliation.
 
-The latest revision adds Git credential-helper and workspace-synchronization controls that distinguish working-tree cleanliness from `.git` administrative changes, require a predeclared failure disposition, and keep CLI/API authentication separate from Git transport proof.
+The latest revision adds rollback artifact-identity controls that separate the Live control-plane entry from immutable lineage and serving content, track mutation attempts across tasks, and require an explicit unknown classification when the platform cannot distinguish candidate content from an in-place restore.
 
 ## Package contents
 
@@ -29,6 +29,7 @@ The latest revision adds Git credential-helper and workspace-synchronization con
 - `references/EXECUTION_SURFACE_CONFIDENTIALITY.md` — output projection, authenticated-page minimization, URL/overlay incidents, and artifact handling
 - `references/FINAL_RECONCILIATION.md` — positive/negative claim, attempt-count, state-transition, and final-readback checks
 - `references/GIT_AUTHENTICATION_AND_WORKSPACE_SYNCHRONIZATION.md` — helper-chain inspection, residual configuration, fetch/sync gates, and separate Git state planes
+- `references/ROLLBACK_ARTIFACT_IDENTITY.md` — rollback attempt ownership, source-fidelity rules, content-identity proof, and two-axis classification
 - `templates/ENGINEERING_TASK_PROMPT.md` — general-purpose template
 - `templates/READ_ONLY_CAPABILITY_ASSESSMENT.md` — security/platform capability template
 - `templates/DOCUMENTATION_RECONCILIATION.md` — documentation-only reconciliation template

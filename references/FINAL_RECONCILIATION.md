@@ -32,9 +32,17 @@ List the path, not merely the ending state:
 
 Unexplained transitions remain incidents even when the ending state looks safe.
 
+For rollback/restore reconciliation, separate the active control-plane entry, immutable artifact lineage, serving-content identity, and application behavior. A Live marker, operator-authored description, SHA-like identifier, or absence of a new row does not collapse those planes into one proven artifact identity.
+
 ## Attempt counts
 
 Count failed and successful attempts separately. A parse-rejected SQL statement followed by a successful retry is two read-only attempts.
+
+Attribute each irreversible attempt to a task/time/actor. State whether a prior-task attempt consumed the current or cumulative mutation allowance; if the prompt is ambiguous, do not spend another attempt.
+
+## Provisional conclusions
+
+List and explicitly retract any material conclusion contradicted by later evidence. A final answer must not silently replace an early confident success statement with the opposite classification.
 
 ## Final platform state
 

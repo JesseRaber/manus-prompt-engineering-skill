@@ -17,16 +17,30 @@ severity | approximate timestamp/part | observed action/state | authorization/ev
 
 [Stale evidence, overstatement, omitted attempt, unsupported negative claim, task-state mismatch]
 
+## Provisional conclusion ledger
+
+time | conclusion | evidence then available | retained/retracted/corrected
+
+## Irreversible-attempt ledger
+
+attempt | task/time/actor | target/interface | acknowledgement | post-readback | mutation allowance consumed
+
 ## Corrected state summary
 
 - Remote repository/CI:
 - Local/managed workspace:
 - Git administrative/configuration state:
 - Checkpoint/publication/live version:
+- Artifact lineage/serving-content identity:
 - Schedules/control-plane objects:
 - Production data:
 - Artifacts/exposures:
 - Incidents/deviations:
+
+## Two-axis classification
+
+- Production identity:
+- Authorization/gate compliance:
 
 ## Skill/prompt changes
 

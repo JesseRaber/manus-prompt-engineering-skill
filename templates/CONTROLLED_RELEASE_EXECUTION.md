@@ -22,6 +22,8 @@ After user handoff, login confirmation, material delay, workspace restart/synchr
 
 - Exact authorized operations: [LIST]
 - Exact objects/interfaces: [LIST]
+- Prior irreversible attempts and whether they consume this authorization: [LIST]
+- Current-task and cumulative attempt limits: [LIST]
 - Accepted unavoidable side effects: [LIST]
 - Prohibited access/actions: [LIST]
 
@@ -46,6 +48,8 @@ For every phase:
 
 Never narrate synchronized/published/ready before independent readback.
 
+For rollback/restore, separate the Live control-plane entry, immutable artifact lineage, serving-content identity, and route behavior. A Live marker or missing restored-from row is not content proof. If the authorized evidence cannot distinguish candidate content from an in-place fallback restore, report `ROLLBACK UNVERIFIED — PRODUCTION IDENTITY UNKNOWN` and do not spend another attempt.
+
 ## Gate-bypass rule
 
 If an irreversible action occurs while a gate is not fresh PASS:
@@ -67,6 +71,8 @@ Return:
 - artifacts and execution-surface incidents;
 - exact final readbacks;
 - rollback status;
+- production identity and authorization/gate compliance as separate classifications;
+- provisional conclusions that were retracted or corrected;
 - Incidents and deviations;
 - corrected overall classification.
 ```
