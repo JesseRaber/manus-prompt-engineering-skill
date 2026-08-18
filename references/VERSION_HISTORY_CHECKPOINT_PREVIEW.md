@@ -86,6 +86,8 @@ Cross-surface equivalence: UNVERIFIED
 
 When the prompt authorizes only the UI, stop using the API result entirely.
 
+For rollback/restore identity disputes, use `ROLLBACK_ARTIFACT_IDENTITY.md`. A Live marker identifies the active entry; it does not by itself prove immutable content lineage or rule out an in-place restore.
+
 ## 7. Provenance is not readiness
 
 After clicking Preview, separate:

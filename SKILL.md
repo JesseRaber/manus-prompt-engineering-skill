@@ -171,7 +171,7 @@ For expected login metadata DML, distinguish `AUTHORIZED`, `EXPECTED BY CODE`, `
 
 ## Browser stabilization and harness errors
 
-After authentication or navigation, wait for the requested UI/network cycle to stabilize before turning an intermediate loading/empty state into a final result. Reconcile provisional observations if the later stable state differs.
+After authentication or navigation, wait for the requested UI/network cycle to stabilize before turning an intermediate loading/empty state into a final result. Reconcile provisional observations if the later stable state differs. For focused production symptom diagnosis, preserve the page's actual request/render path and use `references/PRODUCTION_DIAGNOSIS_AND_REPRODUCTION.md`.
 
 Classify Manus/browser-tool failures separately from application/runtime failures. Failed click delivery, reconnects, focus problems, or automation transport errors do not establish a candidate application defect.
 
@@ -407,7 +407,7 @@ Claims such as `no invocation occurred` and `no other task changed` require befo
 
 Keep direct state (`enabled=false`) separate from scheduling semantics (`will not trigger`) unless the latter is documented/proven.
 
-See `references/CONTROLLED_PLATFORM_MUTATION.md`.
+See `references/CONTROLLED_PLATFORM_MUTATION.md`. For rollback/restore identity reconciliation, do not equate a Live marker, operator-authored description, or SHA-like ID with serving-content lineage; attribute attempts across tasks and use `references/ROLLBACK_ARTIFACT_IDENTITY.md`.
 
 ## Operational capability closure
 
