@@ -8,9 +8,41 @@ It also includes fail-closed irreversible-action gates, prompt-render integrity 
 
 The latest revision adds Claude.ai-compatible metadata, moves Cabinet Price Analyzer defaults into a conditional project profile, and provides a deterministic package builder that validates progressive disclosure and the ZIP root.
 
+## Manus Execution Protocol V1
+
+The repository now includes a draft/pilot two-sided execution protocol for GPT/Claude → Manus workflows.
+
+The design intentionally does **not** use model identity as a trust signal. A declaration such as `generator: OpenAI-GPT` or `generator: Anthropic-Claude` records provenance only. It never grants authorization.
+
+Protocol V1 uses a small `<MANUS_EXECUTION_PROTOCOL>` envelope that describes execution constraints such as repository/production access ceilings, controlled mutation classes, starting gates, mutation latches, independent post-mutation readback, drift handling, context isolation, and final-report requirements.
+
+The current human-readable prompt remains authoritative. Manus computes effective authorization from the safe intersection of the prompt and protocol. Safety-critical conflicts stop rather than being guessed through.
+
+Protocol files:
+
+- `protocol/MANUS_EXECUTION_PROTOCOL.md` — canonical Version 1 semantics and failure behavior
+- `protocol/PROTOCOL_SCHEMA.md` — required fields and controlled vocabulary
+- `templates/MANUS_EXECUTION_PROTOCOL_V1.md` — authoring template
+- `authoring-protocol/SKILL.md` — GPT/Claude-side companion for emitting compliant envelopes
+- `manus-execution/SKILL.md` — Manus-side companion for parsing and enforcing envelopes
+
+### Recommended pilot installation
+
+For GPT/Claude prompt authoring, install/use the existing `manus-prompt-engineering` skill together with `authoring-protocol/SKILL.md`.
+
+For Manus execution, install/use `manus-execution/SKILL.md` together with the `protocol/` reference files.
+
+During the pilot, ordinary prompts without an MEP envelope remain valid; the Manus execution companion must not reject non-protocol prompts merely because the envelope is absent.
+
+Do not treat Protocol V1 as cryptographically signed. If verifiable provenance is ever added, it should be a later, separate feature and must not replace current-prompt authorization checks.
+
 ## Package contents
 
 - `SKILL.md` — main callable skill instructions
+- `authoring-protocol/SKILL.md` — companion skill for GPT/Claude-side MEP V1 prompt envelopes
+- `manus-execution/SKILL.md` — companion Manus-side MEP V1 executor
+- `protocol/MANUS_EXECUTION_PROTOCOL.md` — canonical MEP V1 specification
+- `protocol/PROTOCOL_SCHEMA.md` — MEP V1 schema and controlled vocabulary
 - `references/READ_ONLY_WORKSPACE_INTEGRITY.md` — prevents hidden local writes during read-only work
 - `references/EVIDENCE_AND_CAPABILITY_STATUS.md` — evidence hierarchy and layered status semantics
 - `references/RUNTIME_PROVENANCE_AND_PREVIEW_FIDELITY.md` — distinguishes source, runtime, build, checkpoint, and deployment evidence
@@ -33,6 +65,7 @@ The latest revision adds Claude.ai-compatible metadata, moves Cabinet Price Anal
 - `references/PRODUCTION_DIAGNOSIS_AND_REPRODUCTION.md` — controlled UI reproduction, page-request correlation, causal branch gates, artifact limits, and diagnosis taxonomy
 - `references/CABINET_PRICE_ANALYZER_PROFILE.md` — project-specific release defaults loaded only for Cabinet Price Analyzer work
 - `templates/ENGINEERING_TASK_PROMPT.md` — general-purpose template
+- `templates/MANUS_EXECUTION_PROTOCOL_V1.md` — protocol envelope template for substantial Manus tasks
 - `templates/READ_ONLY_CAPABILITY_ASSESSMENT.md` — security/platform capability template
 - `templates/DOCUMENTATION_RECONCILIATION.md` — documentation-only reconciliation template
 - `templates/READ_ONLY_PREVIEW_VALIDATION.md` — preview/rollback/runtime template
@@ -46,6 +79,8 @@ The latest revision adds Claude.ai-compatible metadata, moves Cabinet Price Anal
 ## Installation concept
 
 Install/copy the entire `manus-prompt-engineering` directory into the skill directory used by the target agent environment. The callable entrypoint is `SKILL.md`.
+
+For Protocol V1 pilots, also expose the authoring or executor companion entrypoint appropriate to the target model as described above.
 
 To build the Claude.ai upload archive without GitHub's branch suffix, run:
 
