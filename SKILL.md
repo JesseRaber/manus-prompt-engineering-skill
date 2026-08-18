@@ -1,6 +1,6 @@
 ---
 name: manus-prompt-engineering
-description: Design, review, and improve prompts for Manus AI performing engineering, repository, release, production, security, documentation, or operational tasks. Use when the user asks to write a Manus prompt, improve a Manus prompt, analyze a Manus execution or screen recording, reconcile Manus's final response with what it visibly did, or create safe scoped instructions for Manus. Emphasize exact starting gates, authorization boundaries, read-only workspace integrity, layered evidence conclusions, stop conditions, validation, and auditable final reports.
+description: Design and audit Manus prompts for engineering, release, production, and security work. Use when writing a Manus prompt or reviewing a Manus execution or recording against authorization and evidence.
 ---
 
 # Manus Prompt Engineering
@@ -493,14 +493,6 @@ Confirm:
 - every required report field has an explicit status;
 - repeated prohibitions add real safety value.
 
-## Cabinet Price Analyzer defaults
+## Project profiles
 
-For Cabinet Price Analyzer release-related prompts, default to these unless the user explicitly changes them:
-
-- pin the exact PR/candidate state before mutation;
-- keep application-candidate CI separate from documentation-head CI;
-- distinguish repository compatibility from deployed-runtime validation;
-- require separate explicit authorization for production writes, session invalidation/signing-key rotation, schedule mutation, schema/migration changes, merge, checkpoint, publish, deploy, restore, or Phase activation;
-- do not claim a runtime root cause unless trace-correlated evidence establishes it;
-- preserve unresolved status where evidence is incomplete;
-- leave release blocked unless explicit release authorization is provided.
+For Cabinet Price Analyzer release-related prompts, use `references/CABINET_PRICE_ANALYZER_PROFILE.md`.

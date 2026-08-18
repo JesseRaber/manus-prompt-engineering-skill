@@ -6,7 +6,7 @@ This package incorporates lessons from multiple recorded Manus executions, inclu
 
 It also includes fail-closed irreversible-action gates, prompt-render integrity checks, command-status validation, post-merge recovery topology, full execution-surface minimization, and mechanical final reconciliation.
 
-The latest revision adds controlled production-diagnosis guidance that preserves the page's real request/render path, distinguishes not-reproduced from proven-transient incidents, verifies fresh browser isolation, and prevents speculative diagnosis after the visible symptom is disproved.
+The latest revision adds Claude.ai-compatible metadata, moves Cabinet Price Analyzer defaults into a conditional project profile, and provides a deterministic package builder that validates progressive disclosure and the ZIP root.
 
 ## Package contents
 
@@ -31,6 +31,7 @@ The latest revision adds controlled production-diagnosis guidance that preserves
 - `references/GIT_AUTHENTICATION_AND_WORKSPACE_SYNCHRONIZATION.md` — helper-chain inspection, residual configuration, fetch/sync gates, and separate Git state planes
 - `references/ROLLBACK_ARTIFACT_IDENTITY.md` — rollback attempt ownership, source-fidelity rules, content-identity proof, and two-axis classification
 - `references/PRODUCTION_DIAGNOSIS_AND_REPRODUCTION.md` — controlled UI reproduction, page-request correlation, causal branch gates, artifact limits, and diagnosis taxonomy
+- `references/CABINET_PRICE_ANALYZER_PROFILE.md` — project-specific release defaults loaded only for Cabinet Price Analyzer work
 - `templates/ENGINEERING_TASK_PROMPT.md` — general-purpose template
 - `templates/READ_ONLY_CAPABILITY_ASSESSMENT.md` — security/platform capability template
 - `templates/DOCUMENTATION_RECONCILIATION.md` — documentation-only reconciliation template
@@ -40,9 +41,16 @@ The latest revision adds controlled production-diagnosis guidance that preserves
 - `templates/CONTROLLED_RELEASE_EXECUTION.md` — execution template with transport preflight, mutation latches, and residual-action handling
 - `templates/SCREEN_RECORDING_REVIEW_REPORT.md` — report format that keeps functional result and authorization compliance separate
 - `examples/CAPABILITY_ASSESSMENT_STATUS_EXAMPLE.md` — layered conclusion example
+- `scripts/build_claude_skill.ps1` — validates Claude.ai limits and builds a correctly rooted upload ZIP
 
 ## Installation concept
 
 Install/copy the entire `manus-prompt-engineering` directory into the skill directory used by the target agent environment. The callable entrypoint is `SKILL.md`.
 
-The `.skill` file provided alongside this folder is a ZIP-compatible archive containing this directory structure.
+To build the Claude.ai upload archive without GitHub's branch suffix, run:
+
+```powershell
+./scripts/build_claude_skill.ps1 -OutputPath /path/to/manus-prompt-engineering.zip
+```
+
+The command validates the Claude.ai description limit, the 500-line entrypoint guidance, all resource links, transitive reachability, and the ZIP's single `manus-prompt-engineering/` root.
