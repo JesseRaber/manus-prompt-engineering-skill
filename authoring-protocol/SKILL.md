@@ -15,7 +15,8 @@ Read:
 
 - `../protocol/MANUS_EXECUTION_PROTOCOL.md`
 - `../protocol/PROTOCOL_SCHEMA.md`
-- `../templates/MANUS_EXECUTION_PROTOCOL_V1.md`
+- `../protocol/ENVELOPE_TEMPLATE.md`
+- `../protocol/EXAMPLES.md`
 
 ## When to emit MEP
 
