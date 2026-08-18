@@ -100,6 +100,8 @@ If the only available runtime discriminator itself exercises a protected path, m
 
 See `references/HARD_GATES_AND_RUNTIME_ATTESTATION.md`.
 
+For the full source/runtime/build/checkpoint/deployment evidence-axis model, use `references/RUNTIME_PROVENANCE_AND_PREVIEW_FIDELITY.md`. When validating an existing Version History checkpoint without restoring or publishing it, use `references/VERSION_HISTORY_CHECKPOINT_PREVIEW.md`.
+
 ## Authorization boundaries
 
 Centralize global prohibitions near the top. Distinguish explicitly among:
@@ -370,7 +372,7 @@ See `references/FINAL_RECONCILIATION.md`.
 
 ## Reviewing screen recordings
 
-When the user provides a Manus screen recording, use `references/SCREEN_RECORDING_REVIEW.md`.
+When the user provides a Manus screen recording, use `references/SCREEN_RECORDING_REVIEW.md` and structure the deliverable with `templates/SCREEN_RECORDING_REVIEW_REPORT.md`.
 
 Specifically look for:
 
@@ -391,7 +393,12 @@ Use the closest template and adapt it instead of rebuilding prompts from scratch
 
 - `templates/ENGINEERING_TASK_PROMPT.md`
 - `templates/READ_ONLY_CAPABILITY_ASSESSMENT.md`
+- `templates/READ_ONLY_PREVIEW_VALIDATION.md`
+- `templates/CONTROLLED_LOCAL_PREVIEW_RESTART.md`
 - `templates/DOCUMENTATION_RECONCILIATION.md`
+- `templates/RELEASE_AUTHORIZATION_PACKET.md`
+- `templates/CONTROLLED_RELEASE_EXECUTION.md`
+- `templates/SCREEN_RECORDING_REVIEW_REPORT.md`
 
 ## Controlled platform mutations
 
