@@ -45,9 +45,9 @@ During the pilot, add this block manually. Do not modify the existing authoring 
 
 ## Version provenance
 
-| Version | Revision | Skill-introducing commit | Notes |
+| Version | Revision | Skill commit | Notes |
 |---|---|---|---|
-| 1.0.0 | 2026-08-18.1 | `a6e932d66c04d658eb8c23c286717a37b23c6e2d` | Initial extracted pilot execution skill |
+| 1.0.0 | 2026-08-18.1 | `2e08df981fb503ec7da72652e4413e0d9bacb512` | Initial compact extracted pilot execution skill |
 
 For substantive execution-semantic changes, increment the version. For non-semantic clarification or packaging/documentation-only changes, increment the revision and preserve the version-to-commit mapping.
 
